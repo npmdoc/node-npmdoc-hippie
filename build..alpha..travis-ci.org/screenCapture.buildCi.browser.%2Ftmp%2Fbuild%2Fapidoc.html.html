@@ -1,0 +1,259 @@
+<html><head></head><body><div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a href="https://github.com/vesln/hippie">hippie (v0.5.1)</a>
+</h1>
+<h4>Simple end-to-end API testing</h4>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.hippie">module hippie</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.hippie.hippie">
+            function <span class="apidocSignatureSpan"></span>hippie
+            <span class="apidocSignatureSpan">(app)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.hippie.assert">
+            function <span class="apidocSignatureSpan">hippie.</span>assert
+            <span class="apidocSignatureSpan">(actual, expected, message)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.hippie.toString">
+            function <span class="apidocSignatureSpan">hippie.</span>toString
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.hippie.assert">module hippie.assert</a><ol>
+
+        <li>
+
+            <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">hippie.assert.</span>showDiff</span>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.hippie.assert.assert">
+            function <span class="apidocSignatureSpan">hippie.</span>assert
+            <span class="apidocSignatureSpan">(actual, expected, message)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.hippie.toString">module hippie.toString</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.hippie.toString.toString">
+            function <span class="apidocSignatureSpan">hippie.</span>toString
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.hippie" id="apidoc.module.hippie">module hippie</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.hippie.hippie" id="apidoc.element.hippie.hippie">
+        function <span class="apidocSignatureSpan"></span>hippie
+        <span class="apidocSignatureSpan">(app)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Client(app) {
+  if (!(this instanceof Client)) return new Client(app);
+  this._base = '';
+  this._url = '';
+  this.serialize = serializers.raw;
+  this.parse = parsers.raw;
+  this.middlewares = [];
+  this.expectations = [];
+  this.options = {
+    followRedirect: false,
+    method: 'GET',
+    headers: {}
+  };
+
+  if (app) this.app(app);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.hippie.assert" id="apidoc.element.hippie.assert">
+        function <span class="apidocSignatureSpan">hippie.</span>assert
+        <span class="apidocSignatureSpan">(actual, expected, message)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function assert(actual, expected, message) {
+  if (toString.call(expected) === '[object RegExp]' &amp;&amp; expected.test(actual)) {
+    return;
+  } else if (eql(actual, expected)) {
+    return;
+  }
+
+  var pad = Array(5).join(' ');
+  var msg = message + '\n\n'
+    + pad + 'Actual:   ' + inspect(actual) + '\n'
+    + pad + 'Expected: ' + inspect(expected) + '\n';
+
+  return new AssertionError(msg, {
+    actual: actual,
+    expected: expected,
+    showDiff: assert.showDiff
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.hippie.toString" id="apidoc.element.hippie.toString">
+        function <span class="apidocSignatureSpan">hippie.</span>toString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toString = function () {
+    return text;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.hippie.assert" id="apidoc.module.hippie.assert">module hippie.assert</a></h1>
+
+
+
+
+    <h2>
+        <a href="#apidoc.element.hippie.assert.assert" id="apidoc.element.hippie.assert.assert">
+        function <span class="apidocSignatureSpan">hippie.</span>assert
+        <span class="apidocSignatureSpan">(actual, expected, message)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function assert(actual, expected, message) {
+  if (toString.call(expected) === '[object RegExp]' &amp;&amp; expected.test(actual)) {
+    return;
+  } else if (eql(actual, expected)) {
+    return;
+  }
+
+  var pad = Array(5).join(' ');
+  var msg = message + '\n\n'
+    + pad + 'Actual:   ' + inspect(actual) + '\n'
+    + pad + 'Expected: ' + inspect(expected) + '\n';
+
+  return new AssertionError(msg, {
+    actual: actual,
+    expected: expected,
+    showDiff: assert.showDiff
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.hippie.toString" id="apidoc.module.hippie.toString">module hippie.toString</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.hippie.toString.toString" id="apidoc.element.hippie.toString.toString">
+        function <span class="apidocSignatureSpan">hippie.</span>toString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function toString() { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
+</body></html>
