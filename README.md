@@ -1,4 +1,7 @@
-# api documentation for  [hippie (v0.5.1)](https://github.com/vesln/hippie)  [![npm package](https://img.shields.io/npm/v/npmdoc-hippie.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-hippie) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-hippie.svg)](https://travis-ci.org/npmdoc/node-npmdoc-hippie)
+# npmdoc-hippie
+
+#### basic api documentation for  [hippie (v0.5.1)](https://github.com/vesln/hippie)  [![npm package](https://img.shields.io/npm/v/npmdoc-hippie.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-hippie) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-hippie.svg)](https://travis-ci.org/npmdoc/node-npmdoc-hippie)
+
 #### Simple end-to-end API testing
 
 [![NPM](https://nodei.co/npm/hippie.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/hippie)
@@ -75,7 +78,8 @@
         "pretest": "jshint .",
         "test": "hydro"
     },
-    "version": "0.5.1"
+    "version": "0.5.1",
+    "bin": {}
 }
 ```
 
